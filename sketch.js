@@ -65,7 +65,9 @@ function setup() {
 }
 function draw() {
   background(56,44,44); 
- 
+
+  gettime();
+   
   //Engine.update(engine);
  
   textSize(20);
@@ -127,4 +129,13 @@ function keyPressed(){
   if(keyCode === 32){
       slingShot.attach(this.polygon);
   }
+}
+
+async function gettime(){
+var response = await fetch("http://worldclockapi.com/api/json/est/now");
+var responseJSON = await response.json();
+
+var datetime = responseJSON.datetime;
+var hour = datetime.slice(11,13);
+
 }
